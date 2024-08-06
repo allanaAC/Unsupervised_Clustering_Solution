@@ -1,3 +1,4 @@
+import logging
 from src.data.load_dataset import load_and_preprocess_data
 from src.visualization.visualize import plot_pairplot, visualize_clusters, plot_elbow, plot_silhouette
 from src.model.train_model import kmeans_clustering, elbow_method, silhouette_analysis
@@ -7,6 +8,16 @@ import matplotlib.pyplot as plt
 import pandas as pd
 #warnings.filterwarnings("ignore")
 #plt.style.use('ggplot')
+
+# Configure logging to write to both file and console
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('app.log'),
+        logging.StreamHandler()
+    ]
+)
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
